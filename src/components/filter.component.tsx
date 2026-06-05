@@ -39,7 +39,7 @@ const style = StyleSheet.create({
         gap: 7,
     },
     filt: {
-        paddingVertical: 5,
+        paddingVertical: 8,
         paddingHorizontal: 15,
         backgroundColor: styles.color4,
         borderRadius: 20,

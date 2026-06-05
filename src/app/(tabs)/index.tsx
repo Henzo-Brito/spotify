@@ -1,4 +1,3 @@
-import Filter from "@/components/filter.component";
 import styles from "@/constants/styles.constant";
 import Recent from "@/components/recent.component";
 import { StyleSheet, ScrollView, Text } from "react-native";
@@ -11,7 +10,7 @@ export default function Index(){
     <Recent
         Playlists={[{
             Img: require("@/assets/1.jpg"),
-            Title: "Playlist Legal"
+            Title: "Playlist Legal",
         },{
             Img: require("@/assets/1.jpg"),
             Title: "Playlist Legal"
@@ -41,6 +40,7 @@ export default function Index(){
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
             Img={require("@/assets/1.jpg")}
+            Id={1}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"

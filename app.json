@@ -4,12 +4,12 @@
     "slug": "spotify",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/catfy.jpg",
     "scheme": "spotify",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/1.jpg",
+      "image": "./src/assets/catfy.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#0f0f0f"
     },
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/1.jpg",
+        "foregroundImage": "./src/assets/catfy.jpg",
         "backgroundColor": "#0f0f0f"
       },
       "edgeToEdgeEnabled": true,
@@ -27,7 +27,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./src/assets/catfy.jpg"
     },
     "plugins": [
       "expo-router"

@@ -2,27 +2,29 @@ import styles from "@/constants/styles.constant";
 import { ImageSourcePropType, StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 
-type Playlist ={
+type MusicStyle ={
     Img: ImageSourcePropType
     Title: string
-    BgColor?: string
+    Color: string
+    TitleColor: string
     Id?: number
 }
 
 type Props = {
-    Playlists: Playlist[]
+    Playlists: MusicStyle[]
 }
 
-export default function Recent({Playlists}:Props){
+export default function MusicStyles({Playlists}:Props){
     function drawPlaylists(){
         return Playlists.map((playlist,i)=>{
-            if(i <= 7){
-                return (
-                <TouchableOpacity key={i} onPress={()=>{router.push(`/music/${playlist.Id ?? 1}` as any)}} style={[style.playlist, {backgroundColor: playlist.BgColor}]}>
+            return (
+                <TouchableOpacity key={i} onPress={()=>{
+                    router.push(`/music/${playlist.Id ?? 1}` as any)
+                }} style={[style.playlist, {backgroundColor: playlist.Color}]}>
                     <Image source={playlist.Img} style={style.img}/>
-                    <Text style={style.text} numberOfLines={2}>{playlist.Title}</Text>
-                </TouchableOpacity>)
-            }
+                    <Text style={[style.text, {color: playlist.TitleColor}]} numberOfLines={2}>{playlist.Title}</Text>
+                </TouchableOpacity>
+            )
         })
     }
 
@@ -39,26 +41,31 @@ const style = StyleSheet.create({
         paddingInline: 10,
         width: "100%",
         maxWidth: 500,
-        rowGap: 7
+        rowGap: 15,
     },
     playlist: {
-        flexDirection: "row",
-        alignItems: "center",
-        width: "49%",
-        height: 48,
+        width: "48%",
+        height: 80,
         borderRadius: 6,
-        backgroundColor: styles.color4,
+        backgroundColor: styles.color2,
+        overflow: "hidden",
         gap: 10
     },
     img: {
-        width: 48,
-        height: 48,
+        width: 65,
+        height: 65,
         borderRadius: 4,
+        position: "absolute",
+        right: -10,
+        bottom:-5,
+        transform: "rotate(20deg)"
     },
     text:{
-        color: styles.color5,
         width: "100%",
         overflow: "hidden",
+        padding: 7,
+        fontWeight: 600,
+        fontSize: 16
     }
 });
 

@@ -10,7 +10,7 @@ type Props = {
 }
 
 export function Header({title, img, children}:Props){
-    return(<SafeAreaView style={[style.container]} >
+    return(<SafeAreaView style={[style.container]} edges={["top"]}>
         <View style={style.left}>
             <Image source={img} style={style.img}></Image>
             <Text style={style.title}>{title}</Text>
@@ -27,9 +27,9 @@ const style = StyleSheet.create({
         backgroundColor: styles.color2
     },
     img:{
-        width: 30,
-        height: 30,
-        borderRadius: "50%"
+        width: 33,
+        height: 33,
+        borderRadius: 500
     },
     title:{
         fontSize: 18,

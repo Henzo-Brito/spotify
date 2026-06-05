@@ -35,13 +35,14 @@ const style = StyleSheet.create({
     },
     childrens:{
         flexDirection: "row",
-        padding: 5
+        padding: 5,
+        gap: 10
     },
     topper:{
         flexDirection: "row",
         alignItems: "center",
         paddingInline: 10,
-        paddingTop: 10,
+        paddingTop: 20
     }
 })
 

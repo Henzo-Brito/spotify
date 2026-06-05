@@ -5,6 +5,7 @@ const styles = {
     color4: "#282a27",
     color5: "#f3feeb",
     color6: "#b7bfb3",
+    color7: "#119b44",
 }
 
 export default styles
