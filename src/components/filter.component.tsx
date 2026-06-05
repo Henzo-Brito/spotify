@@ -37,7 +37,6 @@ const style = StyleSheet.create({
     container: {
         flexDirection: "row",
         gap: 7,
-        padding: 10,
     },
     filt: {
         paddingVertical: 5,

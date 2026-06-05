@@ -1,22 +1,83 @@
+import { Header } from "@/components/header.component";
+import IconBtn from "@/components/iconBtn.component";
+
+import Filter from "@/components/filter.component";
+import styles from "@/constants/styles.constant";
 import { Tabs } from "expo-router";
-import { Header } from "@/modules/header.module";
-import IconBtn from "@/modules/iconBtn.module";
-import { Search } from "lucide-react-native";
+import { Camera, Home, Search, LibraryBig, Plus } from "lucide-react-native";
 
 export default function Layout(){
-  return(<Tabs>
+  return(<Tabs
+    screenOptions={{
+      tabBarStyle:{
+        backgroundColor: styles.color3,
+        borderTopWidth: 0,
+        height: 55,
+      },
+      tabBarActiveTintColor: styles.color5,
+      tabBarInactiveTintColor: styles.color6,
+      tabBarIconStyle:{
+        marginTop: 5
+      },
+      tabBarLabelStyle:{
+        fontSize: 10.5
+      }
+    }}
+  >
     <Tabs.Screen
       options={{
         header:()=>{
           return(
             <Header
-              title="Spotify"
               img={require("@/assets/1.jpg")}
             >
-              <IconBtn icon={Search} func={()=>{}} />
-            </Header>)}
+                <Filter filt={["Tudo","Música", "Podcasts"]}/>
+            </Header>)
+        },
+        tabBarIcon:  ({ color, size }) => (
+          <Home color={color} strokeWidth={2.5} size={size} />
+        )
       }}
       name="index"
     />
+    <Tabs.Screen
+      options={{
+        header:()=>{
+          return(
+            <Header
+              title="Buscar"
+              img={require("@/assets/1.jpg")}
+            >
+              <IconBtn icon={Camera} func={()=>{}} />
+            </Header>)
+        },
+        tabBarIcon:  ({ color, size }) => (
+          <Search color={color} strokeWidth={2.5} size={size} />
+        )
+      }}
+      name="search"
+    />
+
+    <Tabs.Screen
+      options={{
+        header:()=>{
+          return(
+            <Header
+              title="Sua Biblioteca"
+              img={require("@/assets/1.jpg")}
+            >
+              <IconBtn icon={Search} func={()=>{}} />
+              <IconBtn icon={Plus} func={()=>{}} />
+            </Header>)
+        },
+        tabBarIcon:  ({ color, size }) => (
+          <LibraryBig color={color} strokeWidth={2.5} size={size} />
+        )
+      }}
+      name="library"
+    />
+
   </Tabs>)
+
+
 }
