@@ -1,18 +1,17 @@
 import { Search } from "lucide-react-native";
 import styles from "@/constants/styles.constant";
-import { View, TextInput, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { router } from "expo-router";
 
 export default function SearchBar() {
   return (
-    <View style={style.searchBar}>
-      <Search size={20} color="#888" />
+    <TouchableOpacity style={style.searchBar} onPress={()=>{
+          router.push("/search/search")
+        }}>
+      <Search size={20} color={styles.color4} />
 
-      <TextInput
-        style={style.input}
-        placeholder="Pesquisar"
-        placeholderTextColor="#888"
-      />
-    </View>
+      <Text style={style.input}>O que você quer ouvir?</Text>
+    </TouchableOpacity>
   );
 }
 
@@ -28,7 +27,9 @@ const style = StyleSheet.create({
   input: {
     flex: 1,
     paddingVertical: 12,
-    fontSize: 18,
+    fontSize: 14,
     marginLeft: 8,
+    color: styles.color4,
+    fontWeight: 500
   },
 });

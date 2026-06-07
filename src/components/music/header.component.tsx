@@ -14,7 +14,10 @@ export default function Header({Title="",Subtitle=""}:Props){
     return(<SafeAreaView edges={["top"]} style={style.Container} >
         <IconBtn 
             icon={ChevronDown}
-            func={()=>{router.push(`/` as any)}}
+            func={()=>{router.canGoBack()
+                ? router.back()
+                : router.push("/")
+            }}
             size={30}
             strokeWidth={1.5}
         />

@@ -47,7 +47,7 @@ export default function Layout(){
               title="Buscar"
               img={require("@/assets/1.jpg")}
             >
-              <IconBtn icon={Camera} func={()=>{}} />
+              <IconBtn icon={Camera} strokeWidth={2} func={()=>{}} />
             </Header>)
         },
         tabBarIcon:  ({ color, size }) => (
@@ -65,8 +65,8 @@ export default function Layout(){
               title="Sua Biblioteca"
               img={require("@/assets/1.jpg")}
             >
-              <IconBtn icon={Search} func={()=>{}} />
-              <IconBtn icon={Plus} func={()=>{}} />
+              <IconBtn strokeWidth={2} icon={Search} func={()=>{}} />
+              <IconBtn strokeWidth={2} icon={Plus} func={()=>{}} />
             </Header>)
         },
         tabBarIcon:  ({ color, size }) => (
