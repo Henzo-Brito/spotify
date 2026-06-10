@@ -18,7 +18,7 @@ export default function Recent({Playlists}:Props){
         return Playlists.map((playlist,i)=>{
             if(i <= 7){
                 return (
-                <TouchableOpacity key={i} onPress={()=>{router.push(`/music/${playlist.Id ?? 1}` as any)}} style={[style.playlist, {backgroundColor: playlist.BgColor}]}>
+                <TouchableOpacity key={i} onPress={()=>{router.push(`/playlist/${playlist.Id ?? 1}` as any)}} style={[style.playlist, {backgroundColor: playlist.BgColor}]}>
                     <Image source={playlist.Img} style={style.img}/>
                     <Text style={style.text} numberOfLines={2}>{playlist.Title}</Text>
                 </TouchableOpacity>)
@@ -36,10 +36,11 @@ const style = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        paddingInline: 10,
+        padding: 10,
         width: "100%",
         maxWidth: 500,
-        rowGap: 7
+        rowGap: 7,
+        
     },
     playlist: {
         flexDirection: "row",

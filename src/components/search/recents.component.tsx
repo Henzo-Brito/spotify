@@ -1,4 +1,3 @@
-
 import { View , Text, StyleSheet} from "react-native";
 
 import styles from "@/constants/styles.constant";
@@ -13,6 +12,7 @@ export default function Recents(){
 
         <MusicMini 
             img={require("@/assets/1.jpg")}  
+            id={123}
             name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
             authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
         >
@@ -21,6 +21,7 @@ export default function Recents(){
         </MusicMini>
 <MusicMini 
             img={require("@/assets/1.jpg")}  
+            id={123}
             name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
             authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
         >
@@ -29,6 +30,7 @@ export default function Recents(){
         </MusicMini>
         <MusicMini 
             img={require("@/assets/1.jpg")}  
+            id={123}
             name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
             authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
         >
@@ -37,6 +39,7 @@ export default function Recents(){
         </MusicMini>
         <MusicMini 
             img={require("@/assets/1.jpg")}  
+            id={123}
             name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
             authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
         >
@@ -45,6 +48,7 @@ export default function Recents(){
         </MusicMini>
         <MusicMini 
             img={require("@/assets/1.jpg")}  
+            id={123}
             name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
             authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
         >

@@ -20,8 +20,6 @@ export default function Music(){
         <Image style={style.img} source={require("@/assets/1.jpg")} />
       </View>
 
-
-
       <View style={style.desc}>
         <View style={style.info}>
           <Text style={style.title} numberOfLines={1}>asdfasdfas dfasdf asd Playlist do Henzo</Text>

@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet } from "react-native"
 
-import SearchBarHeader from "@/components/search/searchHeacder.component"
+import SearchBarHeader from "@/components/search/searchHeader.component"
 import styles from "@/constants/styles.constant"
 
 import Recents from "@/components/search/recents.component"

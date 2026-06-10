@@ -33,7 +33,6 @@ export default function Index(){
             Img: require("@/assets/1.jpg"),
             Title: "Playlist Legal"
         }]
-    
     }
     />
     <Section title="Artistas que você curte">
