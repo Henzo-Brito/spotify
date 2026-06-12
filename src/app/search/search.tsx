@@ -1,14 +1,16 @@
-import { ScrollView, StyleSheet } from "react-native"
+import { ScrollView, StyleSheet, View } from "react-native"
 
-import SearchBarHeader from "@/components/search/searchHeader.component"
+import SearchBarHeader from "@/components/search/searchBarHeader.component"
 import styles from "@/constants/styles.constant"
 
 import Recents from "@/components/search/recents.component"
 
-export default function Search(){
-    return(<ScrollView style={style.container}>
-        <SearchBarHeader/>
+import { MusicProvider } from "@/contexts/music.context"
 
+export default function Search(){
+    return(<ScrollView style={style.container} stickyHeaderIndices={[0]}>
+        <SearchBarHeader color={styles.color4}/>
+        
         <Recents>
             
         </Recents>
@@ -19,5 +21,5 @@ export default function Search(){
 const style = StyleSheet.create({
     container:{
         backgroundColor: styles.color2
-    }
+    },
 })

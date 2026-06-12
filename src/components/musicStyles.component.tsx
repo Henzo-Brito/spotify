@@ -19,7 +19,7 @@ export default function MusicStyles({Playlists}:Props){
         return Playlists.map((playlist,i)=>{
             return (
                 <TouchableOpacity key={i} onPress={()=>{
-                    router.push(`/music/${playlist.Id ?? 1}` as any)
+                    router.push(`/playlist/${playlist.Id ?? 1}` as any)
                 }} style={[style.playlist, {backgroundColor: playlist.Color}]}>
                     <Image source={playlist.Img} style={style.img}/>
                     <Text style={[style.text, {color: playlist.TitleColor}]} numberOfLines={2}>{playlist.Title}</Text>

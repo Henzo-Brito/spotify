@@ -12,6 +12,8 @@ type Props ={
     Id?: number
 }
 
+import { usePathname } from "expo-router";
+
 export default function Album({Img, Title, Subtitle, TitleLines=2, Size=155, BorderRadius=5, Id=1}:Props){
     function drawSub(){
         if (Subtitle){
@@ -20,8 +22,13 @@ export default function Album({Img, Title, Subtitle, TitleLines=2, Size=155, Bor
             )
         }
     }
+    const pathname = usePathname();
     
-    return (<TouchableOpacity onPress={()=>{router.push(`/music/${Id}` as any)}} style={[style.container, {width: Size}]}>
+    return (<TouchableOpacity onPress={()=>{
+            if (pathname !== `/playlist/${Id}`){
+                router.push(`/playlist/${Id}` as any)
+            }
+        }} style={[style.container, {width: Size}]}>
         <Image source={Img} style={{width: Size,height: Size, borderRadius: BorderRadius}}/>
         <Text style={style.text} numberOfLines={TitleLines}>{Title ?? ""}</Text>
         {drawSub()}

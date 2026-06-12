@@ -15,7 +15,6 @@ type Props ={
 
 export default function MusicMini({img, name, authors=[""], children, size=57, id}:Props){
     function setTheAutors(){
-         
         return authors.map((author, i)=>{
             if (authors.length-1 == i){
                 return(author)

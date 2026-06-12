@@ -42,7 +42,7 @@ const style = StyleSheet.create({
         width: "100%",
         fontSize: 14,
         justifyContent: "space-between",
-        paddingBottom: 25,
+        padding: 20,
     },
     Text:{
         color: styles.color5,

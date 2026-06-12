@@ -18,6 +18,7 @@ const style = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         gap: 10,
+        paddingInline: 15
     },
     img:{
         width: 35,

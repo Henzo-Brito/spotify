@@ -1,26 +1,44 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Image, Text } from 'react-native';
-import SearchBarHeader from '@/components/search/searchHeader.component';
 import styles from '@/constants/styles.constant';
 
+import SearchBarHeader from '@/components/search/searchBarHeader.component';
 import MiniUser from '@/components/miniUser';
+import Player from '@/components/playlist/player.component';
+import Musics from '@/components/playlist/musics.component';
+
+import { LinearGradient } from "expo-linear-gradient";
+
 
 export default function Playlist() {
   return (
-    <View style={style.container}>
+    <View style={style.container} >
+
       <SearchBarHeader />
+      
       <ScrollView contentContainerStyle={style.scrollContent}>
-        <View style={style.imageContainer}>
-          <Image 
-            style={style.img} 
-            source={require('@/assets/1.jpg')} 
-          />
-        </View>
-
-        <Text style={style.title} numberOfLines={1}>TASDFVJANWSECVBASJDNCVGAWSEYHSXMDJCVNAWFGSCN SAXBVCNAWSNGEFDWXSJCSGV</Text>
-
-        <MiniUser text="Henzo Brito" img={require("@/assets/1.jpg")}/>
         
+        <View style={style.topper}>
+          <LinearGradient
+            colors={['transparent', styles.color3]}
+            style={[
+              StyleSheet.absoluteFillObject,
+            ]}
+          />
+          <View style={style.imageContainer}>
+            <Image 
+              style={style.img} 
+              source={require('@img/1.jpg')} 
+            />
+          </View>
+
+          <Text style={style.title} numberOfLines={1}>TASDFVJANWSECVBASJDNCVGAWSEYHSXMDJCVNAWFGSCN SAXBVCNAWSNGEFDWXSJCSGV</Text>
+
+          <MiniUser text="Henzo Brito" img={require("@img/1.jpg")}/>
+          
+          <Player />
+        </View>
+          <Musics></Musics>
       </ScrollView>
     </View>
   );
@@ -31,10 +49,10 @@ const style = StyleSheet.create({
     flex: 1,
     width: "100%",
     backgroundColor: styles.color4,
+    height: "100%"
   },
   scrollContent: {
-    justifyContent: 'center',
-    padding: 15
+    flexGrow: 1,
   },
   imageContainer: {
     width: '100%',
@@ -51,6 +69,11 @@ const style = StyleSheet.create({
     fontSize: 25,
     fontWeight: 700,
     overflow: "hidden",
-    width: "100%"
-  }
+    width: "100%",
+    padding: 15
+  },
+  topper:{
+    position: "relative",
+    overflow: "hidden",
+  },
 });

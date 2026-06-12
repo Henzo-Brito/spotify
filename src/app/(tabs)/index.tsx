@@ -9,28 +9,28 @@ export default function Index(){
 
     <Recent
         Playlists={[{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal",
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         },{
-            Img: require("@/assets/1.jpg"),
+            Img: require("@img/1.jpg"),
             Title: "Playlist Legal"
         }]
     }
@@ -38,42 +38,42 @@ export default function Index(){
     <Section title="Artistas que você curte">
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
             Id={1}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
     </Section>
     <Section title="Álbuns com as músicas que você adora">
         <Album 
             Subtitle="Artista"
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Subtitle="Artista"
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Subtitle="Artista"
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Subtitle="Artista"
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
     </Section>
 
@@ -84,21 +84,21 @@ export default function Index(){
         <Album 
             Title="MPB"
             Subtitle="Playlist - Henzo Brito"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
             Size={100}
             TitleLines={1}
         />
         <Album 
             Title="MPB"
             Subtitle="Playlist - Henzo Brito"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
             Size={100}
             TitleLines={1}
         />
         <Album 
             Title="Henzo Brito dos Santos"
             Subtitle="Artista"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
             Size={100}
             TitleLines={1}
             BorderRadius={200}
@@ -106,7 +106,7 @@ export default function Index(){
         <Album 
             Title="MPB"
             Subtitle="Playlist - Henzo Brito"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
             Size={100}
             TitleLines={1}
         />
@@ -114,41 +114,41 @@ export default function Index(){
     <Section title="Seus Mixes Mais ouvidos">
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
     </Section>
     <Section title="Suas músicas estão com saudade">
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
             Subtitle="Playlist"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
             Subtitle="Artista"
             BorderRadius={400}
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
         <Album 
             Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
             Subtitle="Playlist"
-            Img={require("@/assets/1.jpg")}
+            Img={require("@img/1.jpg")}
         />
     </Section>
 
