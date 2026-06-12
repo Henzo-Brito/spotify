@@ -8,9 +8,23 @@ import Player from '@/components/playlist/player.component';
 import Musics from '@/components/playlist/musics.component';
 
 import { LinearGradient } from "expo-linear-gradient";
+import { useLocalSearchParams } from "expo-router";
 
+import { getPlaylistById, getTracksByPlaylistID } from '@/db/setPlaylists';
+import { TrackID } from '@/db/Playlists';
 
 export default function Playlist() {
+  const { id } = useLocalSearchParams<{ id: TrackID }>();
+
+  const playlistId = Array.isArray(id) ? id[0] : id;
+
+  if (!playlistId) {
+    return null;
+  }
+
+  const playlist = getPlaylistById(playlistId as TrackID);
+  const tracks = getTracksByPlaylistID(playlistId as TrackID);
+
   return (
     <View style={style.container} >
 
@@ -28,17 +42,17 @@ export default function Playlist() {
           <View style={style.imageContainer}>
             <Image 
               style={style.img} 
-              source={require('@img/1.jpg')} 
+              source={playlist?.img} 
             />
           </View>
 
-          <Text style={style.title} numberOfLines={1}>TASDFVJANWSECVBASJDNCVGAWSEYHSXMDJCVNAWFGSCN SAXBVCNAWSNGEFDWXSJCSGV</Text>
+          <Text style={style.title} numberOfLines={1}>{playlist?.name}</Text>
 
           <MiniUser text="Henzo Brito" img={require("@img/1.jpg")}/>
           
-          <Player />
+          <Player track={tracks[0]} playlistID={id} playlist={tracks} />
         </View>
-          <Musics></Musics>
+        <Musics id={playlist?.id}/>
       </ScrollView>
     </View>
   );

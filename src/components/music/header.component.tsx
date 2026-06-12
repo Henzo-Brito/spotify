@@ -19,10 +19,10 @@ export default function Header({Title="",Subtitle=""}:Props){
                 : router.push("/")
             }}
             size={30}
-            strokeWidth={1.5}
+            strokeWidth={2}
         />
         <View>
-            <Text numberOfLines={1} style={[style.Text, {color: styles.color6, fontSize: 12}]}>{Subtitle}</Text>
+            <Text numberOfLines={1} style={[style.Text, {color: styles.color6, fontSize: 15}]}>{Subtitle}</Text>
             <Text numberOfLines={1} style={style.Text}>{Title}</Text>
         </View>
 
@@ -30,7 +30,7 @@ export default function Header({Title="",Subtitle=""}:Props){
             icon={EllipsisVertical}
             func={()=>{}}
             size={25}
-            strokeWidth={1.5}
+            strokeWidth={2}
         />
     </SafeAreaView>)
 }
@@ -40,14 +40,13 @@ const style = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         width: "100%",
-        fontSize: 14,
         justifyContent: "space-between",
         padding: 20,
     },
     Text:{
         color: styles.color5,
         width: "100%",
-        fontSize: 14,
+        fontSize: 16,
         textAlign: "center",
         overflow: "hidden",
     }

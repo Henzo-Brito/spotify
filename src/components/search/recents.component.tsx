@@ -1,175 +1,19 @@
 import { View , Text, StyleSheet} from "react-native";
 
 import styles from "@/constants/styles.constant";
-import MusicMini from "../musicMini.component";
-import IconBtn from "../iconBtn.component";
-import { X, EllipsisVertical} from "lucide-react-native";
+
+import { getAllMusics } from "@/db/setPlaylists";
 
 export default function Recents(){
     
     return(<View style={style.container}>
         <Text style={style.title}>Recentes</Text>
-
-        <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-<MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-        <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-        <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-        <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
-                <MusicMini 
-            img={require("@img/1.jpg")}  
-            id={123}
-            name="Henzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaao" 
-            authors={["Henzo", "Britasaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaa","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaop"]}    
-        >
-            <IconBtn icon={EllipsisVertical} func={()=>{}} strokeWidth={2}/>
-            <IconBtn icon={X} func={()=>{}} strokeWidth={2} />
-        </MusicMini>
+        {getAllMusics()}
     </View>)
 }
 
 const style = StyleSheet.create({
     container:{
-        gap: 10,
         padding: 15
     },
     title:{

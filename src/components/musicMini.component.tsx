@@ -6,14 +6,14 @@ import { router } from "expo-router";
 
 type Props ={
     img: ImageSourcePropType,
-    name: string,
+    name?: string,
     authors?: string[],
     children?: React.ReactNode
     size?: number
-    id: number
+    func: ()=>void
 }
 
-export default function MusicMini({img, name, authors=[""], children, size=57, id}:Props){
+export default function MusicMini({img, name="Nome", authors=[""], func, children, size=57}:Props){
     function setTheAutors(){
         return authors.map((author, i)=>{
             if (authors.length-1 == i){
@@ -29,6 +29,7 @@ export default function MusicMini({img, name, authors=[""], children, size=57, i
             flexDirection: "row",
             alignItems: "center",
             gap: 10,
+            paddingBlock: 5
         },
         title:{
             color: styles.color5,
@@ -51,11 +52,12 @@ export default function MusicMini({img, name, authors=[""], children, size=57, i
             alignItems: "center",
             gap: 2,
             justifyContent: "center",
-            flex: 1
+            flex: 1,
+            width: "85%",
         }
     })
     
-    return(<TouchableOpacity style={style.container} onPress={()=>{router.push(`/music/${id ?? 1}` as any)}}>
+    return(<TouchableOpacity style={style.container} onPress={func}>
         <Image style={style.img} source={img}/>
 
         <View style={style.texts}>

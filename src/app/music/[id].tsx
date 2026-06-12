@@ -1,35 +1,49 @@
 import { ScrollView, StyleSheet, Image, View, Text } from "react-native";
 import Header from "@/components/music/header.component";
 import styles from "@/constants/styles.constant";
-import { PlusCircle } from "lucide-react-native";
-import IconBtn from "@/components/iconBtn.component";
 import Player from "@/components/music/player.component";
 
 import { LinearGradient } from "expo-linear-gradient";
 
-import { MusicProvider } from "@/contexts/music.context";
+import { useLocalSearchParams } from "expo-router";
+
+import { TrackID } from "@/db/Playlists";
+import { getMusicById } from "@/db/setPlaylists";
 
 export default function Music(){
+  const { id } = useLocalSearchParams<{ id: TrackID }>();
 
+  const music = getMusicById(id)
+    function setTheAutors(){
+        let str = ""
+        music.authors.map((author, i)=>{
+            if (music.authors.length-1 == i){
+                str += author
+            }else{
+                str += `author, `
+            }
+        })
+        return str
+    }
   return(
 
   <ScrollView style={style.Container}>
       <Header 
-        Title="Música do Henzo"
-        Subtitle="Playlist do Henzo"
+        Title={music.title}
+        Subtitle={setTheAutors()}
       />
       <View style={style.Image} >
-        <Image style={style.img} source={require("@img/1.jpg")} />
+        <Image style={style.img} source={music.img} />
       </View>
 
       <View style={style.desc}>
         <View style={style.info}>
-          <Text style={style.title} numberOfLines={1}>asdfasdfas dfasdf asd Playlist do Henzo</Text>
-          <Text style={style.subtitle} numberOfLines={1}>asdfasdfas dfasdf asd Henzo Brito dos Santos</Text>
+          <Text style={style.title} numberOfLines={1}>{music.title}</Text>
+          <Text style={style.subtitle} numberOfLines={1}>{setTheAutors()}</Text>
         </View>
       </View>
       
-      <Player track={{id: "1", source: require("@msc/1.m4a"), title:"Henzo", authors:["Henzo", "O melhor"]}}/>
+      <Player track={music}/>
 
       <LinearGradient
         colors={[styles.color4, styles.color3]}

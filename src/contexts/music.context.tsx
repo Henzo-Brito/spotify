@@ -1,12 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Audio } from "expo-av";
-
-export type Track = {
-  id: string;
-  title: string;
-  source: any;
-  authors: string[]
-};
+import { useAudioPlayer } from "expo-audio";
+import { Track } from "@/db/Playlists";
 
 type MusicContextType = {
   currentTrack: Track | null;
@@ -17,8 +11,10 @@ type MusicContextType = {
   pause: () => Promise<void>;
   resume: () => Promise<void>;
 
-  next: () => void;
-  prev: () => void;
+  next: () => Track | null;
+  prev: () => Track | null;
+
+  playlist: Track[];
 
   positionMillis: number;
   durationMillis: number;
@@ -29,51 +25,31 @@ type MusicContextType = {
 const MusicContext = createContext({} as MusicContextType);
 
 export function MusicProvider({ children }: { children: React.ReactNode }) {
-  const [sound, setSound] = useState<Audio.Sound | null>(null);
+  const player = useAudioPlayer();
 
   const [playlist, setPlaylistState] = useState<Track[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const [progress, setProgress] = useState(0);
-  
+
   const [positionMillis, setPositionMillis] = useState(0);
   const [durationMillis, setDurationMillis] = useState(0);
 
   // 🎧 PLAY
   async function play(track: Track) {
     try {
-      if (sound) {
-        await sound.unloadAsync();
-      }
-
-      const { sound: newSound } = await Audio.Sound.createAsync(
-        track.source,
-        { shouldPlay: true }
-      );
-
-      newSound.setOnPlaybackStatusUpdate((status) => {
-       if (!status.isLoaded) return;
-
-        setPositionMillis(status.positionMillis);
-
-        setDurationMillis(status.durationMillis ?? 0);
-
-        const duration = status.durationMillis ?? 0;
-
-        if (duration > 0) {
-        setProgress(status.positionMillis / duration);
-      }});
-
-      setSound(newSound);
       setCurrentTrack(track);
-      setIsPlaying(true);
 
-      // sincroniza índice
       const index = playlist.findIndex((t) => t.id === track.id);
       if (index !== -1) setCurrentIndex(index);
 
+      player.replace(track.source);
+      player.play();
+
+      setIsPlaying(true);
     } catch (err) {
       console.log("Erro play:", err);
     }
@@ -81,52 +57,62 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
 
   // ⏸ PAUSE
   async function pause() {
-    if (!sound) return;
-    await sound.pauseAsync();
+    player.pause();
     setIsPlaying(false);
   }
 
-  // ▶ RESUME (CORRIGIDO)
+  // ▶ RESUME
   async function resume() {
-    if (!sound) return;
-    await sound.playAsync();
+    player.play();
     setIsPlaying(true);
   }
 
   // ⏭ NEXT
   function next() {
-    if (playlist.length === 0) return;
+    if (playlist.length === 0) return null;
 
-    const nextIndex = (currentIndex + 1) % playlist.length;
-    setCurrentIndex(nextIndex);
+    const index = (currentIndex + 1) % playlist.length;
+    const track = playlist[index];
 
-    play(playlist[nextIndex]);
+    setCurrentIndex(index);
+    play(track);
+
+    return track;
   }
 
   // ⏮ PREV
   function prev() {
-    if (playlist.length === 0) return;
+    if (playlist.length === 0) return null;
 
-    const prevIndex =
-      currentIndex === 0 ? playlist.length - 1 : currentIndex - 1;
+    const index =
+      currentIndex === 0
+        ? playlist.length - 1
+        : currentIndex - 1;
 
-    setCurrentIndex(prevIndex);
+    const track = playlist[index];
 
-    play(playlist[prevIndex]);
+    setCurrentIndex(index);
+    play(track);
+
+    return track;
   }
 
-  function setPlaylist(tracks: Track[]) {
-    setPlaylistState(tracks);
-  }
-
-  // 🧹 CLEANUP
+  // 📊 PROGRESS TRACKING
   useEffect(() => {
-    return () => {
-      if (sound) {
-        sound.unloadAsync();
+    const interval = setInterval(() => {
+      const current = player.currentTime ?? 0;
+      const duration = player.duration ?? 0;
+
+      setPositionMillis(current);
+      setDurationMillis(duration);
+
+      if (duration > 0) {
+        setProgress(current / duration);
       }
-    };
-  }, [sound]);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [player]);
 
   return (
     <MusicContext.Provider
@@ -134,14 +120,18 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
         currentTrack,
         isPlaying,
         progress,
+        playlist,
+
         play,
         pause,
         resume,
         next,
         prev,
+
         positionMillis,
         durationMillis,
-        setPlaylist,
+
+        setPlaylist: setPlaylistState,
       }}
     >
       {children}

@@ -2,7 +2,7 @@ import styles from "@/constants/styles.constant";
 import { ImageSourcePropType, StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 
-type MusicStyle ={
+export type MusicStyle ={
     Img: ImageSourcePropType
     Title: string
     Color: string
@@ -19,10 +19,10 @@ export default function MusicStyles({Playlists}:Props){
         return Playlists.map((playlist,i)=>{
             return (
                 <TouchableOpacity key={i} onPress={()=>{
-                    router.push(`/playlist/${playlist.Id ?? 1}` as any)
+                    router.push(`/music/${playlist.Id ?? 1}` as any)
                 }} style={[style.playlist, {backgroundColor: playlist.Color}]}>
                     <Image source={playlist.Img} style={style.img}/>
-                    <Text style={[style.text, {color: playlist.TitleColor}]} numberOfLines={2}>{playlist.Title}</Text>
+                    <Text style={[style.text, {color: playlist.TitleColor}]} numberOfLines={1}>{playlist.Title}</Text>
                 </TouchableOpacity>
             )
         })
@@ -61,7 +61,7 @@ const style = StyleSheet.create({
         transform: "rotate(20deg)"
     },
     text:{
-        width: "100%",
+        width: "75%",
         overflow: "hidden",
         padding: 7,
         fontWeight: 600,

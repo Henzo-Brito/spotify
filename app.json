@@ -4,12 +4,12 @@
     "slug": "spotify",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/catfy.jpg",
+    "icon": "./src/assets/images/catfy.jpg",
     "scheme": "spotify",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./src/assets/catfy.jpg",
+      "image": "./src/assets/images/catfy.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#0f0f0f"
     },
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/catfy.jpg",
+        "foregroundImage": "./src/assets/images/catfy.jpg",
         "backgroundColor": "#0f0f0f"
       },
       "edgeToEdgeEnabled": true,
@@ -27,10 +27,11 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./src/assets/catfy.jpg"
+      "favicon": "./src/assets/images/catfy.jpg"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-audio"
     ],
     "experiments": {
       "typedRoutes": true

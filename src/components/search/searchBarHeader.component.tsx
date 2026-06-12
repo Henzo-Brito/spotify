@@ -14,7 +14,13 @@ type Props={
 export default function SearchBarHeader({placeholder = "O que você quer Ouvir?", color="transparent", sty}:Props){
     return(
         <SafeAreaView edges={["top"]} style={[style.container, {backgroundColor: color}, sty]}>
-            <IconBtn icon={ArrowLeft} func={()=>{router.back()}}></IconBtn>
+            <IconBtn icon={ArrowLeft} func={()=>{
+                        if (!router.canGoBack()){
+                            return router.push("/(tabs)")
+                        }
+                        return router.back() 
+                    }
+                }></IconBtn>
             <TextInput placeholder={placeholder} placeholderTextColor={styles.color6} style={style.input}/>
         </SafeAreaView>
     )

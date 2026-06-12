@@ -1,8 +1,8 @@
-export function formatTime(ms: number) {
-  const totalSeconds = Math.floor(ms / 1000);
+export function formatTime(seconds: number) {
+  const totalSeconds = Math.floor(seconds);
 
   const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
+  const remainingSeconds = totalSeconds % 60;
 
-  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
 }

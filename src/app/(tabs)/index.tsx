@@ -2,154 +2,31 @@ import styles from "@/constants/styles.constant";
 import Recent from "@/components/recent.component";
 import { StyleSheet, ScrollView, Text } from "react-native";
 import Section from "@/components/Section.component";
-import Album from "@/components/album.component";
+import { SetAlbums, setPlaylist, setRecentsPlaylist } from "@/db/setPlaylists";
 
 export default function Index(){
   return(<ScrollView style={style.container} showsVerticalScrollIndicator={false}>
 
-    <Recent
-        Playlists={[{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal",
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        },{
-            Img: require("@img/1.jpg"),
-            Title: "Playlist Legal"
-        }]
-    }
-    />
+    <Recent Playlists={setRecentsPlaylist()}/>
+    
     <Section title="Artistas que você curte">
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-            Id={1}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
+        {SetAlbums(0, 5, 155)}
     </Section>
     <Section title="Álbuns com as músicas que você adora">
-        <Album 
-            Subtitle="Artista"
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Subtitle="Artista"
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Subtitle="Artista"
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Subtitle="Artista"
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
+        {SetAlbums(6, 10, 155)}
     </Section>
 
     <Section title="Recentes" btn={
         <Text style={{color: styles.color6}}>
             Mostrar Tudo
         </Text>}>
-        <Album 
-            Title="MPB"
-            Subtitle="Playlist - Henzo Brito"
-            Img={require("@img/1.jpg")}
-            Size={100}
-            TitleLines={1}
-        />
-        <Album 
-            Title="MPB"
-            Subtitle="Playlist - Henzo Brito"
-            Img={require("@img/1.jpg")}
-            Size={100}
-            TitleLines={1}
-        />
-        <Album 
-            Title="Henzo Brito dos Santos"
-            Subtitle="Artista"
-            Img={require("@img/1.jpg")}
-            Size={100}
-            TitleLines={1}
-            BorderRadius={200}
-        />
-        <Album 
-            Title="MPB"
-            Subtitle="Playlist - Henzo Brito"
-            Img={require("@img/1.jpg")}
-            Size={100}
-            TitleLines={1}
-        />
+        {SetAlbums(10, 15, 100)}
     </Section>
     <Section title="Seus Mixes Mais ouvidos">
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
+        {setPlaylist(0, 1, 155)}
     </Section>
     <Section title="Suas músicas estão com saudade">
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Subtitle="Playlist"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Subtitle="Artista"
-            BorderRadius={400}
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Img={require("@img/1.jpg")}
-        />
-        <Album 
-            Title="asdcvasdcasedfasdcvasdcasdf asdfasdcasdfcasdf casdcasdcasefascasdf"
-            Subtitle="Playlist"
-            Img={require("@img/1.jpg")}
-        />
+        {SetAlbums(16, 21, 155)}
     </Section>
 
   </ScrollView>)

@@ -1,12 +1,12 @@
 import styles from "@/constants/styles.constant";
-import { ImageSourcePropType, StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 
 type Playlist ={
-    Img: ImageSourcePropType
-    Title: string
+    img: any
+    name: string
+    id: number | string
     BgColor?: string
-    Id?: number
 }
 
 type Props = {
@@ -18,9 +18,9 @@ export default function Recent({Playlists}:Props){
         return Playlists.map((playlist,i)=>{
             if(i <= 7){
                 return (
-                <TouchableOpacity key={i} onPress={()=>{router.push(`/playlist/${playlist.Id ?? 1}` as any)}} style={[style.playlist, {backgroundColor: playlist.BgColor}]}>
-                    <Image source={playlist.Img} style={style.img}/>
-                    <Text style={style.text} numberOfLines={2}>{playlist.Title}</Text>
+                <TouchableOpacity key={i} onPress={()=>{router.push(`/playlist/${playlist.id}` as any)}} style={[style.playlist, {backgroundColor: playlist.BgColor}]}>
+                    <Image source={playlist.img} style={style.img}/>
+                    <Text style={style.text} numberOfLines={2}>{playlist.name}</Text>
                 </TouchableOpacity>)
             }
         })

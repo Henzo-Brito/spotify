@@ -3,19 +3,31 @@ import { View, StyleSheet } from "react-native";
 
 type Props = {
   progress: number; // 0 a 1
+  id: string | number
 };
 
-export default function LineMusic({ progress }: Props) {
-  const safeProgress = Math.min(Math.max(progress, 0), 1);
+import { useMusic } from "@/contexts/music.context";
+
+export default function LineMusic({ progress, id }: Props) {
+  let safeProgress = Math.min(Math.max(progress, 0), 1);
+  const {currentTrack} = useMusic();
+
+  
+  if (id === currentTrack?.id) {
+     safeProgress = safeProgress * 100
+  }else{
+    safeProgress = 0;
+  }
+  
 
   return (
     <View style={style.line}>
-      <View style={[style.lineD, { width: `${safeProgress * 100}%` }]} />
+      <View style={[style.lineD, { width: `${safeProgress}%` }]} />
 
       <View
         style={[
           style.circle,
-          { left: `${safeProgress * 100}%` },
+          { left: `${safeProgress}%` },
         ]}
       />
     </View>
@@ -34,6 +46,7 @@ const style = StyleSheet.create({
   },
 
   lineD: {
+    transitionProperty: "width",
     position: "absolute",
     left: 0,
     top: 0,

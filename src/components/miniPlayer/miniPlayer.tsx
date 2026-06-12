@@ -4,56 +4,56 @@ import { Play, Pause, SkipForward } from "lucide-react-native";
 import IconBtn from "@/components/iconBtn.component";
 import styles from "@/constants/styles.constant";
 import { router, usePathname } from "expo-router";
-import { useState } from "react";
 
 export default function MiniPlayer() {
-  const { currentTrack, isPlaying, pause, resume, next } = useMusic();
+  const { currentTrack, isPlaying, pause, resume, next, prev } = useMusic();
+  const pathname = usePathname();
 
   if (!currentTrack) return null;
 
-  const pathname = usePathname();
-    
-    function setTheAutors(){
-        return currentTrack?.authors.map((author, i)=>{
-            if (currentTrack.authors.length-1 == i){
-                return(author)
-            }else{
-                return(author + ", ")
-            }
-        })
-    }
-
-  let bottom = 100
-
-  if (pathname.startsWith("/music/") ||pathname.startsWith("/playlist/") ||pathname.startsWith("/search/") ) {
-    bottom = 50
-  }else{
-    bottom = 100
+  function getAuthors() {
+    return currentTrack?.authors.join(", ");
   }
 
+  const bottom =
+    pathname.startsWith("/music/") ||
+    pathname.startsWith("/playlist/") ||
+    pathname.startsWith("/search/")
+      ? 50
+      : 100;
+
   return (
-    <TouchableOpacity 
-        onPress={()=>{
-            if (pathname !== `/music/${currentTrack.id}`){
-                router.push(`/music/${currentTrack.id}` as any)
-            }
-        }} style={[style.container,{bottom: bottom}]}>
+    <TouchableOpacity
+      onPress={() => {
+        if (pathname !== `/music/${currentTrack.id}`) {
+          router.push(`/music/${currentTrack.id}` as any);
+        }
+      }}
+      style={[style.container, { bottom }]}
+    >
+      <View style={{ gap: 10, flexDirection: "row", alignItems: "center", width: "50%" }}>
+        <Image
+          source={
+            typeof currentTrack.img === "string"
+              ? { uri: currentTrack.img }
+              : currentTrack.img
+          }
+          style={style.img}
+        />
 
-      <View style={{gap: 5, flexDirection: "row", alignItems: "center"}}>
-
-        <Image source={require("@img/1.jpg")} style={style.img}/>
-        <View>
+        <View style={style.text}>
           <Text style={style.title} numberOfLines={1}>
             {currentTrack.title}
           </Text>
-          <Text style={style.subtitle} numberOfLines={1}> 
-            {setTheAutors()}
+
+          <Text style={style.subtitle} numberOfLines={1}>
+            {getAuthors()}
           </Text>
         </View>
       </View>
 
       <View style={style.container2}>
-        <IconBtn icon={SkipForward} func={next} rotate={180} color={styles.color5} />
+        <IconBtn icon={SkipForward} func={prev} rotate={180} color={styles.color6} />
 
         <IconBtn
           icon={isPlaying ? Pause : Play}
@@ -63,12 +63,11 @@ export default function MiniPlayer() {
           size={30}
         />
 
-        <IconBtn icon={SkipForward} color={styles.color5}  func={next} />
+        <IconBtn icon={SkipForward} color={styles.color6} func={next} />
       </View>
     </TouchableOpacity>
   );
 }
-
 
 const style = StyleSheet.create({
     container:{
@@ -76,12 +75,13 @@ const style = StyleSheet.create({
         bottom: 100,
         left: 10,
         right: 10,
-        backgroundColor: styles.color7,
+        backgroundColor: styles.color4,
         padding: 7,
         borderRadius: 12,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
+        
         zIndex: 999,
 
         shadowColor:styles.color3,
@@ -95,16 +95,19 @@ const style = StyleSheet.create({
         elevation: 10,
     },
     title:{ 
-        color: styles.color3, 
+        color: styles.color5, 
         fontWeight: "bold",
         fontSize: 16,
         overflow: "hidden",
         width: "100%"
     },
     subtitle:{
-      color: styles.color2,
+        color: styles.color6,
         fontSize: 14,
-                overflow: "hidden",
+        overflow: "hidden",
+        width: "100%"
+    },
+    text:{
         width: "100%"
     },
     container2:{ 
