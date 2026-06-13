@@ -67,6 +67,7 @@ export function getAllMusics(){
 }
 
 import Album from "@/components/album.component";
+import styles from "@/constants/styles.constant";
 
 export function SetAlbums(init: number, finish: number, size: number){
     const albums = []
@@ -110,50 +111,17 @@ export function setPlaylist(init: number, finish: number, size: number){
     return albums
 }
 
-import { FastAverageColor } from "fast-average-color";
-import { Asset } from "expo-asset";
+import { MusicStyle } from "@/components/musicStyles.component";
 
-const fac = new FastAverageColor();
-
-const paletteCache = new Map<string, Promise<any>>();
-
-async function getColorFromRequire(img: any) {
-  const asset = Asset.fromModule(img);
-  await asset.downloadAsync();
-
-  const uri = asset.localUri ?? asset.uri;
-
-  if (!uri) {
-    throw new Error("Invalid asset URI");
-  }
-
-  return fac.getColorAsync(uri);
-}
-
-export async function setMusicsStyles() {
-  const results = await Promise.all(
-    tracks.map((track) => {
-      if (paletteCache.has(track.img)) {
-        return paletteCache.get(track.img)!;
-      }
-
-      const promise = (async () => {
-        const color = await getColorFromRequire(track.img);
-
-        return {
+export function setMusicsStyles(){
+    return tracks.map((track)=>{
+        const Music: MusicStyle = {
           Title: track.title,
-          Color: color.hex,
-          TitleColor: color.isDark ? "#fff" : "#000",
-          Background: color.hex,
+          TitleColor: styles.color5,
+          Color: styles.color7,
           Img: track.img,
-        };
-      })();
-
-      paletteCache.set(track.img, promise);
-
-      return promise;
+          Id: track.id
+        }
+        return Music
     })
-  );
-
-  return results;
 }

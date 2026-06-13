@@ -3,11 +3,11 @@ import { ImageSourcePropType, StyleSheet, View, Image, Text, TouchableOpacity } 
 import { router } from "expo-router";
 
 export type MusicStyle ={
-    Img: ImageSourcePropType
+    Img: ImageSourcePropType | any
     Title: string
     Color: string
     TitleColor: string
-    Id?: number
+    Id: number | string
 }
 
 type Props = {
